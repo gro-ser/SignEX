@@ -5,10 +5,9 @@ using System.Diagnostics;
 public class SignEX
 {
 	IntPtr handle;
-	public SignEX(string ProcessName)
-	{
-		handle = OpenProcess(2035711, false, GetProcessID(ProcessName));
-	}
+	public SignEX(string ProcessName) { handle = OpenProcess(2035711, false, GetProcessID(ProcessName)); }
+	public SignEX(int pID) { handle = OpenProcess(2035711, false, pID); }
+	public SignEX(IntPtr pHandle) { handle = pHandle; }
 	public struct MEMORY_BASIC_INFORMATION
 	{
 		public IntPtr BaseAddress;
